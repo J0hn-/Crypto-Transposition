@@ -16,5 +16,10 @@ namespace Crypto_Transposition_DedSec
         {
             InitializeComponent();
         }
+
+        private void key_generate(object sender, EventArgs e)
+        {
+            header.Visible = !header.Visible;
+        }
     }
 }

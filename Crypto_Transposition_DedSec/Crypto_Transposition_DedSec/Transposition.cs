@@ -19,17 +19,38 @@ namespace Crypto_Transposition_DedSec
 
         private void key_generate(object sender, EventArgs e)
         {
-            header.Visible = !header.Visible;
+            if (!keyGen.Visible)
+            {
+                keyGen.Visible = true;
+                cryptPicture.Visible = false;
+                decryptPicture.Visible = false;
+            }
         }
 
         private void crypt(object sender, EventArgs e)
         {
-
+            if (!cryptPicture.Visible)
+            {
+                keyGen.Visible = false;
+                cryptPicture.Visible = true;
+                decryptPicture.Visible = false;
+            } 
         }
 
         private void decrypt(object sender, EventArgs e)
         {
+            if (!decryptPicture.Visible)
+            {
+                keyGen.Visible = false;
+                cryptPicture.Visible = false;
+                decryptPicture.Visible = true;
+            }
+        }
 
+        private void checkEscape(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)27)
+                Application.Exit();
         }
     }
 }

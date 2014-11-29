@@ -38,8 +38,12 @@
             this.bt_crypt = new System.Windows.Forms.Button();
             this.bt_decrypt = new System.Windows.Forms.Button();
             this.bt_key = new System.Windows.Forms.Button();
-            this.header = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.header)).BeginInit();
+            this.keyGen = new System.Windows.Forms.PictureBox();
+            this.cryptPicture = new System.Windows.Forms.PictureBox();
+            this.decryptPicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.keyGen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cryptPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decryptPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_crypt
@@ -87,6 +91,7 @@
             this.tb_key.Name = "tb_key";
             this.tb_key.Size = new System.Drawing.Size(428, 22);
             this.tb_key.TabIndex = 7;
+            this.tb_key.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // tb_crypt
             // 
@@ -97,6 +102,7 @@
             this.tb_crypt.Name = "tb_crypt";
             this.tb_crypt.Size = new System.Drawing.Size(442, 22);
             this.tb_crypt.TabIndex = 8;
+            this.tb_crypt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // tb_decrypt
             // 
@@ -107,6 +113,7 @@
             this.tb_decrypt.Name = "tb_decrypt";
             this.tb_decrypt.Size = new System.Drawing.Size(426, 22);
             this.tb_decrypt.TabIndex = 9;
+            this.tb_decrypt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // bt_crypt
             // 
@@ -147,25 +154,51 @@
             this.bt_key.UseVisualStyleBackColor = false;
             this.bt_key.Click += new System.EventHandler(this.key_generate);
             // 
-            // header
+            // keyGen
             // 
-            this.header.Image = global::Crypto_Transposition_DedSec.Properties.Resources.tumblr_n6s8peOt8J1ql7hdyo1_500;
-            this.header.InitialImage = global::Crypto_Transposition_DedSec.Properties.Resources.initial;
-            this.header.Location = new System.Drawing.Point(12, 7);
-            this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(759, 273);
-            this.header.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.header.TabIndex = 13;
-            this.header.TabStop = false;
-            this.header.Visible = false;
+            this.keyGen.Image = global::Crypto_Transposition_DedSec.Properties.Resources.tumblr_n6s8peOt8J1ql7hdyo1_500;
+            this.keyGen.InitialImage = global::Crypto_Transposition_DedSec.Properties.Resources.initial;
+            this.keyGen.Location = new System.Drawing.Point(12, 7);
+            this.keyGen.Name = "keyGen";
+            this.keyGen.Size = new System.Drawing.Size(759, 273);
+            this.keyGen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.keyGen.TabIndex = 13;
+            this.keyGen.TabStop = false;
+            this.keyGen.Visible = false;
+            // 
+            // cryptPicture
+            // 
+            this.cryptPicture.Image = global::Crypto_Transposition_DedSec.Properties.Resources.cryptPicture;
+            this.cryptPicture.InitialImage = global::Crypto_Transposition_DedSec.Properties.Resources.initial;
+            this.cryptPicture.Location = new System.Drawing.Point(12, 7);
+            this.cryptPicture.Name = "cryptPicture";
+            this.cryptPicture.Size = new System.Drawing.Size(759, 273);
+            this.cryptPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cryptPicture.TabIndex = 14;
+            this.cryptPicture.TabStop = false;
+            this.cryptPicture.Visible = false;
+            // 
+            // decryptPicture
+            // 
+            this.decryptPicture.Image = global::Crypto_Transposition_DedSec.Properties.Resources.decryptPicture;
+            this.decryptPicture.InitialImage = global::Crypto_Transposition_DedSec.Properties.Resources.initial;
+            this.decryptPicture.Location = new System.Drawing.Point(12, 7);
+            this.decryptPicture.Name = "decryptPicture";
+            this.decryptPicture.Size = new System.Drawing.Size(759, 273);
+            this.decryptPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.decryptPicture.TabIndex = 15;
+            this.decryptPicture.TabStop = false;
+            this.decryptPicture.Visible = false;
             // 
             // Transposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Crypto_Transposition_DedSec.Properties.Resources.fond;
-            this.ClientSize = new System.Drawing.Size(783, 521);
-            this.Controls.Add(this.header);
+            this.ClientSize = new System.Drawing.Size(779, 517);
+            this.Controls.Add(this.decryptPicture);
+            this.Controls.Add(this.cryptPicture);
+            this.Controls.Add(this.keyGen);
             this.Controls.Add(this.bt_key);
             this.Controls.Add(this.bt_decrypt);
             this.Controls.Add(this.bt_crypt);
@@ -175,11 +208,14 @@
             this.Controls.Add(this.lb_key);
             this.Controls.Add(this.lb_decrypt);
             this.Controls.Add(this.lb_crypt);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(799, 559);
             this.Name = "Transposition";
             this.Text = "CRYP70 7R4NSP051710N By D3D55C - J0HN & B4TR0";
-            ((System.ComponentModel.ISupportInitialize)(this.header)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyGen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cryptPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decryptPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,7 +232,9 @@
         private System.Windows.Forms.Button bt_crypt;
         private System.Windows.Forms.Button bt_decrypt;
         private System.Windows.Forms.Button bt_key;
-        private System.Windows.Forms.PictureBox header;
+        private System.Windows.Forms.PictureBox keyGen;
+        private System.Windows.Forms.PictureBox cryptPicture;
+        private System.Windows.Forms.PictureBox decryptPicture;
     }
 }
 

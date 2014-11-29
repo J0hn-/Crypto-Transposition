@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +14,8 @@ namespace Crypto_Transposition_DedSec
 {
     public partial class Transposition : Form
     {
+        SoundPlayer snd = null;
+
         public Transposition()
         {
             InitializeComponent();
@@ -63,6 +67,9 @@ namespace Crypto_Transposition_DedSec
 
         private void charger(object sender, EventArgs e)
         {
+            Stream str = Properties.Resources.mySoundFile;
+            snd = new SoundPlayer(str);
+            snd.Play();
             tb_crypt.Text = "";
             tb_decrypt.Text = "";
             tb_key.Text = "";

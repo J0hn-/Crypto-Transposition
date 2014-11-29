@@ -101,6 +101,15 @@ namespace Crypto_Transposition_DedSec.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.IO.UnmanagedMemoryStream semblable à System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream mySoundFile {
+            get {
+                return ResourceManager.GetStream("mySoundFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap tumblr_n6s8peOt8J1ql7hdyo1_500 {

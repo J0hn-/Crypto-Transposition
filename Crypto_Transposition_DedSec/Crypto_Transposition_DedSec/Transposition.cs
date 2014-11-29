@@ -21,5 +21,15 @@ namespace Crypto_Transposition_DedSec
         {
             header.Visible = !header.Visible;
         }
+
+        private void crypt(object sender, EventArgs e)
+        {
+
+        }
+
+        private void decrypt(object sender, EventArgs e)
+        {
+
+        }
     }
 }

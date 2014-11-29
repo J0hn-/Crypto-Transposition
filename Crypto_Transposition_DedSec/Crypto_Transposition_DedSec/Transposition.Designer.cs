@@ -119,6 +119,7 @@
             this.bt_crypt.TabIndex = 10;
             this.bt_crypt.Text = "Crypter";
             this.bt_crypt.UseVisualStyleBackColor = false;
+            this.bt_crypt.Click += new System.EventHandler(this.crypt);
             // 
             // bt_decrypt
             // 
@@ -131,6 +132,7 @@
             this.bt_decrypt.TabIndex = 11;
             this.bt_decrypt.Text = "Décrypter";
             this.bt_decrypt.UseVisualStyleBackColor = false;
+            this.bt_decrypt.Click += new System.EventHandler(this.decrypt);
             // 
             // bt_key
             // 

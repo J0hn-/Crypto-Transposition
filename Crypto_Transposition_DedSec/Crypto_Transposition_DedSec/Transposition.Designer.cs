@@ -91,7 +91,6 @@
             this.tb_key.Name = "tb_key";
             this.tb_key.Size = new System.Drawing.Size(428, 22);
             this.tb_key.TabIndex = 7;
-            this.tb_key.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // tb_crypt
             // 
@@ -102,7 +101,6 @@
             this.tb_crypt.Name = "tb_crypt";
             this.tb_crypt.Size = new System.Drawing.Size(442, 22);
             this.tb_crypt.TabIndex = 8;
-            this.tb_crypt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // tb_decrypt
             // 
@@ -113,7 +111,6 @@
             this.tb_decrypt.Name = "tb_decrypt";
             this.tb_decrypt.Size = new System.Drawing.Size(426, 22);
             this.tb_decrypt.TabIndex = 9;
-            this.tb_decrypt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.checkEscape);
             // 
             // bt_crypt
             // 
@@ -213,6 +210,7 @@
             this.MaximumSize = new System.Drawing.Size(799, 559);
             this.Name = "Transposition";
             this.Text = "CRYP70 7R4NSP051710N By D3D55C - J0HN & B4TR0";
+            this.Load += new System.EventHandler(this.charger);
             ((System.ComponentModel.ISupportInitialize)(this.keyGen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.decryptPicture)).EndInit();

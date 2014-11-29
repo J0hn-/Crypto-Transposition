@@ -17,14 +17,28 @@ namespace Crypto_Transposition_DedSec
             InitializeComponent();
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void key_generate(object sender, EventArgs e)
         {
+            Random random = new Random();
             if (!keyGen.Visible)
             {
                 keyGen.Visible = true;
                 cryptPicture.Visible = false;
                 decryptPicture.Visible = false;
             }
+            tb_key.Text = "";
+            for (int i = 0; i < 10; ++i)
+                tb_key.Text += (char)random.Next(65,90);
         }
 
         private void crypt(object sender, EventArgs e)
@@ -47,10 +61,11 @@ namespace Crypto_Transposition_DedSec
             }
         }
 
-        private void checkEscape(object sender, KeyPressEventArgs e)
+        private void charger(object sender, EventArgs e)
         {
-            if(e.KeyChar == (char)27)
-                Application.Exit();
+            tb_crypt.Text = "";
+            tb_decrypt.Text = "";
+            tb_key.Text = "";
         }
     }
 }

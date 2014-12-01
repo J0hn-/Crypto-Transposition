@@ -34,34 +34,43 @@ namespace Crypto_Transposition_DedSec
         private void key_generate(object sender, EventArgs e)
         {
             Random random = new Random();
-            if (!keyGen.Visible)
-            {
-                keyGen.Visible = true;
-                cryptPicture.Visible = false;
-                decryptPicture.Visible = false;
-            }
+            change_header(TypeHeader.KEYGEN);
             tb_key.Text = "";
             for (int i = 0; i < 10; ++i)
                 tb_key.Text += (char)random.Next(65,90);
         }
 
+        enum TypeHeader {CRYPT, DECRYPT, KEYGEN}
+
+        private void change_header(TypeHeader type)
+        {
+            keyGen.Visible = (type == TypeHeader.KEYGEN ? true : false);
+            cryptPicture.Visible = (type == TypeHeader.CRYPT ? true : false);
+            decryptPicture.Visible = (type == TypeHeader.DECRYPT ? true : false);
+        }
+
         private void crypt(object sender, EventArgs e)
         {
-            if (!cryptPicture.Visible)
+            if (tb_crypt.Text.Length == 0)
+                MessageBox.Show("Rien à crypter !", "Noob !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (tb_key.Text.Length == 0)
+                MessageBox.Show("Veuillez entrer ou générer une clef.", "Noob !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                keyGen.Visible = false;
-                cryptPicture.Visible = true;
-                decryptPicture.Visible = false;
-            } 
+                change_header(TypeHeader.CRYPT);
+            }
+
         }
 
         private void decrypt(object sender, EventArgs e)
         {
-            if (!decryptPicture.Visible)
+            if (tb_decrypt.Text.Length == 0)
+                MessageBox.Show("Rien à décrypter !", "Noob !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (tb_key.Text.Length == 0)
+                MessageBox.Show("Veuillez entrer ou générer une clef.", "Noob !", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                keyGen.Visible = false;
-                cryptPicture.Visible = false;
-                decryptPicture.Visible = true;
+                change_header(TypeHeader.DECRYPT);
             }
         }
 
@@ -69,10 +78,15 @@ namespace Crypto_Transposition_DedSec
         {
             Stream str = Properties.Resources.mySoundFile;
             snd = new SoundPlayer(str);
-            snd.Play();
+            snd.PlayLooping();
             tb_crypt.Text = "";
             tb_decrypt.Text = "";
             tb_key.Text = "";
+        }
+
+        private void quit(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

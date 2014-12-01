@@ -41,6 +41,7 @@
             this.keyGen = new System.Windows.Forms.PictureBox();
             this.cryptPicture = new System.Windows.Forms.PictureBox();
             this.decryptPicture = new System.Windows.Forms.PictureBox();
+            this.exit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.keyGen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cryptPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.decryptPicture)).BeginInit();
@@ -187,12 +188,26 @@
             this.decryptPicture.TabStop = false;
             this.decryptPicture.Visible = false;
             // 
+            // exit
+            // 
+            this.exit.AutoSize = true;
+            this.exit.BackColor = System.Drawing.Color.Black;
+            this.exit.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exit.ForeColor = System.Drawing.Color.White;
+            this.exit.Location = new System.Drawing.Point(751, 9);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(18, 18);
+            this.exit.TabIndex = 16;
+            this.exit.Text = "X";
+            this.exit.Click += new System.EventHandler(this.quit);
+            // 
             // Transposition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Crypto_Transposition_DedSec.Properties.Resources.fond;
             this.ClientSize = new System.Drawing.Size(779, 517);
+            this.Controls.Add(this.exit);
             this.Controls.Add(this.decryptPicture);
             this.Controls.Add(this.cryptPicture);
             this.Controls.Add(this.keyGen);
@@ -233,6 +248,7 @@
         private System.Windows.Forms.PictureBox keyGen;
         private System.Windows.Forms.PictureBox cryptPicture;
         private System.Windows.Forms.PictureBox decryptPicture;
+        private System.Windows.Forms.Label exit;
     }
 }
 

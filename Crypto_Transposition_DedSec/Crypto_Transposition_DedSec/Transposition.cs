@@ -58,6 +58,7 @@ namespace Crypto_Transposition_DedSec
             else
             {
                 change_header(TypeHeader.CRYPT);
+                tb_decrypt.Text = Crypt.crypt(tb_crypt.Text, tb_key.Text);
             }
 
         }
@@ -71,6 +72,7 @@ namespace Crypto_Transposition_DedSec
             else
             {
                 change_header(TypeHeader.DECRYPT);
+                tb_crypt.Text = Decrypt.decrypt(tb_decrypt.Text, tb_key.Text);
             }
         }
 

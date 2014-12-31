@@ -72,6 +72,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypt.cs" />
+    <Compile Include="Decrypt.cs" />
     <Compile Include="Transposition.cs">
       <SubType>Form</SubType>
     </Compile>
